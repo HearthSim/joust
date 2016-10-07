@@ -9,6 +9,11 @@ export default class WeaponArt extends React.Component<EntityProps, void> {
 	public render(): JSX.Element {
 		let images = [];
 		let entity = this.props.entity;
+		let postfix = "";
+
+		if (entity.isPremium()) {
+			postfix = "_premium";
+		}
 
 		images.push({
 			image: entity.cardId,
@@ -16,10 +21,11 @@ export default class WeaponArt extends React.Component<EntityProps, void> {
 			classes: ["hero-weapon-portrait"]
 		});
 
-		let frame = "inplay_weapon.png";
+		let frame = `inplay_weapon${postfix}.png`;
 		// TODO: weapon isn't actually sheathed when exhausted, end of turn
-		if (entity.isExhausted())
-			frame = "inplay_weapon_dome.png";
+		if (entity.isExhausted()) {
+			frame = `inplay_weapon_dome${postfix}.png`;
+		}
 
 		images.push({
 			image: frame,

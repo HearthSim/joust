@@ -26,6 +26,11 @@ export default class HeroArt extends React.Component<HeroArtProps, void> {
 	public render():JSX.Element {
 		let images = [];
 		let entity = this.props.entity;
+		let postfix = "";
+
+		if (entity.isPremium()) {
+			postfix = "_premium";
+		}
 
 		images.push({
 			image: entity.cardId,
@@ -34,7 +39,7 @@ export default class HeroArt extends React.Component<HeroArtProps, void> {
 		});
 
 		images.push({
-			image: "hero_frame.png",
+			image: `hero_frame${postfix}.png`,
 			classes: ["hero-frame"]
 		});
 

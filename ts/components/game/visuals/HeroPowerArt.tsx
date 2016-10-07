@@ -9,6 +9,11 @@ export default class HeroPowerArt extends React.Component<EntityProps, void> {
 	public render(): JSX.Element {
 		let images = [];
 		let entity = this.props.entity;
+		let postfix = "";
+
+		if (entity.isPremium()) {
+			postfix = "_premium";
+		}
 
 		images.push({
 			image: entity.cardId,
@@ -16,9 +21,10 @@ export default class HeroPowerArt extends React.Component<EntityProps, void> {
 			classes: ["hero-power-portrait"]
 		});
 
-		let frame = "hero_power.png";
-		if (entity.isExhausted())
-			frame = "hero_power_exhausted.png";
+		let frame = `hero_power${postfix}.png`;
+		if (entity.isExhausted()) {
+			frame = `hero_power_exhausted${postfix}.png`;
+		}
 
 		images.push({
 			image: frame,
