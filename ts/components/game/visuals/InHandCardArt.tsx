@@ -49,6 +49,16 @@ export default class InHandCardArt extends React.Component<InHandCardArtProps> {
 						frame = "inhand_weapon_neutral.png";
 					}
 					break;
+				case CardType.HERO:
+					portraitClass = "inhand-hero";
+					if (entity.isPremium()) {
+						frame = "inhand_hero_premium.png";
+						premiumOverlay = "premium-hero-overlay.png";
+						premiumOverlayClass = cardClass + "-color";
+					} else {
+						frame = "inhand_hero_" + cardClass + ".png";
+					}
+					break;
 				case CardType.SPELL:
 				case CardType.HERO_POWER:
 				default:
@@ -101,6 +111,12 @@ export default class InHandCardArt extends React.Component<InHandCardArtProps> {
 					classes: ["inhand-legendary"],
 				});
 			}
+			if (this.props.cardType === CardType.HERO) {
+				images.push({
+					image: "inhand_hero_legendary" + (entity.isPremium() ? "_premium" : "") + ".png",
+					classes: ["inhand-legendary"],
+				});
+			}
 		}
 
 		if (this.props.mulligan) {
@@ -143,6 +159,8 @@ export default class InHandCardArt extends React.Component<InHandCardArtProps> {
 				return "warlock";
 			case CardClass.WARRIOR:
 				return "warrior";
+			case CardClass.DEATHKNIGHT:
+				return "deathknight";
 			default:
 				return "neutral";
 		}

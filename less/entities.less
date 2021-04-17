@@ -22,24 +22,31 @@
 	div.visuals {
 		.inhand-minion {
 			width: 78%;
-			top: 6%;;
+			top: 6%;
 			left: 11%;
 			clip-path: url(assets/clip-paths.svg#inhand-minion-clip);
 			-webkit-clip-path: ellipse(36% 47% at 50% 50%);
 		}
 		.inhand-spell {
 			width: 70%;
-			top: 11%;;
+			top: 11%;
 			left: 14%;
 			clip-path: url(assets/clip-paths.svg#inhand-spell-clip);
 			-webkit-clip-path: inset(8% 0% 4% 0%);
 		}
 		.inhand-weapon {
 			width: 67%;
-			top: 11%;;
+			top: 11%;
 			left: 17%;
 			clip-path: url(assets/clip-paths.svg#inhand-weapon-clip);
 			-webkit-clip-path: circle(50% at 50% 50%);
+		}
+		.inhand-hero {
+			width: 58%;
+			top: 11%;
+			left: 20%;
+			clip-path: url(assets/clip-paths.svg#inhand-hero-clip);
+			-webkit-clip-path: polygon(0 100%,0 20%,15% 10%,25% 5%,50% 0%,75% 5%,85% 10%,100% 20%,100% 100%);
 		}
 		.inhand-base, .inhand-legendary, .inhand-mulligan {
 			height: 100%;
@@ -93,6 +100,11 @@
 		.health, .durability {
 			left: 76%;
 			top: 85%;
+		}
+
+		.armor {
+			left: 78%;
+			top: 86%;
 		}
 	}
 
@@ -429,4 +441,8 @@
 .neutral-color {
 	filter: hue-rotate(160deg) saturate(0%) brightness(80%);
 	opacity: 0.4;
+}
+
+.deathknight-color {
+	filter: hue-rotate(180deg) saturate(90%) brightness(130%);
 }
